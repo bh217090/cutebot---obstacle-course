@@ -3,7 +3,7 @@
 // Initializing the variables and neopixel lights##
 let lightspeed1 = 0
 let strip = neopixel.create(DigitalPin.P15, 2, NeoPixelMode.RGB)
-//  #Makes the neopixel lights under the robot alternate red/white at variable speeds##
+// #Makes the neopixel lights under the robot alternate red/white at variable speeds##
 basic.forever(function on_forever() {
     
     lightspeed1 = 0
@@ -68,7 +68,7 @@ basic.forever(function on_forever() {
         }
     }
 })
-//  #Makes the robot follow and black lines##
+// #Makes the robot follow and black lines##
 //  def on_forever2():
 //  if cuteBot.ultrasonic(cuteBot.SonarUnit.CENTIMETERS) <= 20:
 //  cuteBot.stopcar()
@@ -83,7 +83,7 @@ basic.forever(function on_forever() {
 //  else:
 //  cuteBot.move_time(cuteBot.Direction.BACKWARD, 100, 0.01)
 //  basic.forever(on_forever2)
-//  #Makes the display alternatly flash a warning pattern##
+// #Makes the display alternatly flash a warning pattern##
 basic.forever(function on_forever2() {
     
     lightspeed1 = 0
@@ -132,8 +132,31 @@ basic.forever(function on_forever3() {
 // #Code will repeat 1 time once button A is pressed##
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
     pause(1000)
-    cuteBot.moveTime(cuteBot.Direction.forward, 75, 0.56)
+    // Initial straight-away#
+    cuteBot.moveTime(cuteBot.Direction.forward, 75, 0.65)
     cuteBot.stopcar()
-    cuteBot.moveTime(cuteBot.Direction.left, 50, 0.17)
+    // First left turn#
+    cuteBot.moveTime(cuteBot.Direction.left, 50, 0.2)
+    cuteBot.stopcar()
+    // Second straight-away#
+    cuteBot.moveTime(cuteBot.Direction.forward, 75, 0.5)
+    cuteBot.stopcar()
+    // Second left turn#
+    cuteBot.moveTime(cuteBot.Direction.left, 50, 0.19)
+    cuteBot.stopcar()
+    // Third straight-away#
+    cuteBot.moveTime(cuteBot.Direction.forward, 75, 0.32)
+    cuteBot.stopcar()
+    // First right turn#
+    cuteBot.moveTime(cuteBot.Direction.right, 50, 0.17)
+    cuteBot.stopcar()
+    // Fourth straight-away#
+    cuteBot.moveTime(cuteBot.Direction.forward, 75, 0.32)
+    cuteBot.stopcar()
+    // Second right turn#
+    cuteBot.moveTime(cuteBot.Direction.right, 50, 0.18)
+    cuteBot.stopcar()
+    // Fifth straight-away (big straight-away)#
+    cuteBot.moveTime(cuteBot.Direction.forward, 75, 1.2)
     cuteBot.stopcar()
 })

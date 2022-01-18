@@ -1,11 +1,14 @@
 ##Written by Blaine Hord##
+
 ##This code will navigate through our custom obstacle course##
+
 
 #Initializing the variables and neopixel lights##
 
 lightspeed1 = 0
 strip = neopixel.create(DigitalPin.P15, 2, NeoPixelMode.RGB)
-# #Makes the neopixel lights under the robot alternate red/white at variable speeds##
+
+##Makes the neopixel lights under the robot alternate red/white at variable speeds##
 
 def on_forever():
     global lightspeed1
@@ -67,7 +70,8 @@ def on_forever():
             basic.pause(50)
 basic.forever(on_forever)
 
-# #Makes the robot follow and black lines##
+##Makes the robot follow and black lines##
+
 # def on_forever2():
 # if cuteBot.ultrasonic(cuteBot.SonarUnit.CENTIMETERS) <= 20:
 # cuteBot.stopcar()
@@ -82,7 +86,8 @@ basic.forever(on_forever)
 # else:
 # cuteBot.move_time(cuteBot.Direction.BACKWARD, 100, 0.01)
 # basic.forever(on_forever2)
-# #Makes the display alternatly flash a warning pattern##
+
+##Makes the display alternatly flash a warning pattern##
 
 def on_forever2():
     global lightspeed1
@@ -128,12 +133,39 @@ def on_forever3():
     lightspeed1 += 1
 basic.forever(on_forever3)
 
+
 ##START OF MAZE CODE##
 ##Code will repeat 1 time once button A is pressed##
+
 def on_button_pressed_a():
     pause(1000)
-    cuteBot.move_time(cuteBot.Direction.FORWARD, 75, 0.56)
+    #Initial straight-away#
+    cuteBot.move_time(cuteBot.Direction.FORWARD, 75, 0.65)
     cuteBot.stopcar()
-    cuteBot.move_time(cuteBot.Direction.LEFT, 50, 0.17)
+    #First left turn#
+    cuteBot.move_time(cuteBot.Direction.LEFT, 50, 0.2)
+    cuteBot.stopcar()
+    #Second straight-away#
+    cuteBot.move_time(cuteBot.Direction.FORWARD, 75, 0.5)
+    cuteBot.stopcar()
+    #Second left turn#
+    cuteBot.move_time(cuteBot.Direction.LEFT, 50, 0.19)
+    cuteBot.stopcar()
+    #Third straight-away#
+    cuteBot.move_time(cuteBot.Direction.FORWARD, 75, 0.32)
+    cuteBot.stopcar()
+    #First right turn#
+    cuteBot.move_time(cuteBot.Direction.RIGHT, 50, 0.17)
+    cuteBot.stopcar()
+    #Fourth straight-away#
+    cuteBot.move_time(cuteBot.Direction.FORWARD, 75, 0.32)
+    cuteBot.stopcar()
+    #Second right turn#
+    cuteBot.move_time(cuteBot.Direction.RIGHT, 50, 0.18)
+    cuteBot.stopcar()
+    #Fifth straight-away (big straight-away)#
+    cuteBot.move_time(cuteBot.Direction.FORWARD, 75, 1.2)
     cuteBot.stopcar()
 input.on_button_pressed(Button.A, on_button_pressed_a)
+
+##End of code##
